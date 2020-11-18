@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyHtml.html</title>
+</head>
+<body>
+<canvas id="mycanvas" width="600px" height="600px"></canvas>
+
+</body>
+<script type="text/javascript">
+    //自行添加上面代码
+    //      var mymap=new Array(36);
+    //      for(var i=0;i<36;i++)
+    //     {mymap[i]=-1;}
+    function getnei(a)//获得邻居号  random
+    {
+        var x=parseInt(a/aa);//要精确成整数
+        var y=a%aa;
+        var mynei=new Array();//储存邻居
+        if(x-1>=0){mynei.push((x-1)*aa+y);}//上节点
+        if(x+1<14){mynei.push((x+1)*aa+y);}//下节点
+        if(y+1<14){mynei.push(x*aa+y+1);}//有节点
+        if(y-1>=0){mynei.push(x*aa+y-1);}//下节点
+        var ran=parseInt(Math.random() * mynei.length );
+        return mynei[ran];
+
+    }
+    function search(a)//找到根节点
+    {
+        if(tree[parseInt(a/aa)][a%aa]>0)//说明是子节点
+        {
+            return search(tree[parseInt(a/aa)][a%aa]);//不能压缩路径路径压缩
+        }
+        else
+            return a;
+    }
+    function value(a)//找到树的大小
+    {
+        if(tree[parseInt(a/aa)][a%aa]>0)//说明是子节点
+        {
+            return tree[parseInt(a/aa)][a%aa]=value(tree[parseInt(a/aa)][a%aa]);//不能路径压缩
+        }
+        else
+            return -tree[parseInt(a/aa)][a%aa];
+    }
+    function union(a,b)//合并
+    {
+        var a1=search(a);//a根
+        var b1=search(b);//b根
+        if(a1==b1){}
+        else
+        {
+            if(tree[parseInt(a1/aa)][a1%aa]<tree[parseInt(b1/aa)][b1%aa])//这个是负数()，为了简单减少计算，不在调用value函数
+            {
+                tree[parseInt(a1/aa)][a1%aa]+=tree[parseInt(b1/aa)][b1%aa];//个数相加  注意是负数相加
+                tree[parseInt(b1/aa)][b1%aa]=a1;       //b树成为a树的子树，b的根b1直接指向a；
+            }
+            else
+            {
+                tree[parseInt(b1/aa)][b1%aa]+=tree[parseInt(a1/aa)][a1%aa];
+                tree[parseInt(a1/aa)][a1%aa]=b1;//a所在树成为b所在树的子树
+            }
+        }
+    }
+
+    function drawline(a,b)//划线，要判断是上下还是左右
+    {
+
+        var x1=parseInt(a/aa);
+        var y1=a%aa;
+        var x2=parseInt(b/aa);
+        var y2=b%aa;
+        var x3=(x1+x2)/2;
+        var y3=(y1+y2)/2;
+        if(x1-x2==1||x1-x2==-1)//左右方向的点  需要上下划线
+        {
+            //alert(x1);
+            //  context.beginPath();
+            context.strokeStyle = 'white';
+            //    context.moveTo(30+x3*30,y3*30+15);//
+            //   context.lineTo(30+x3*30,y3*30+45);
+            context.clearRect(29+x3*30, y3*30+16,2,28);
+            //    context.stroke();
+        }
+        else
+        {
+            //   context.beginPath();
+            context.strokeStyle = 'white';
+            //  context.moveTo(x3*30+15,30+y3*30);//
+            //    context.lineTo(45+x3*30,30+y3*30);
+            context.clearRect(x3*30+16, 29+y3*30,28,2);
+            //      context.stroke();
+        }
+    }
+
+    while(search(0)!=search(aa*aa-1))//主要思路
+    {
+        var num = parseInt(Math.random() * aa*aa );//产生一个小于196的随机数
+        var neihbour=getnei(num);
+        if(search(num)==search(neihbour)){continue;}
+        else//不在一个上
+        {
+            isling[num][neihbour]=1;isling[neihbour][num]=1;
+            drawline(num,neihbour);//划线
+            union(num,neihbour);
+
+        }
+    }
+</script>
+</html>
