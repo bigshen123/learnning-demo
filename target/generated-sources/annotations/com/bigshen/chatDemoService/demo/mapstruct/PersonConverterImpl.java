@@ -7,7 +7,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-11-15T13:11:31+0800",
+    date = "2020-11-19T21:44:30+0800",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_91 (Oracle Corporation)"
 )
 public class PersonConverterImpl implements PersonConverter {

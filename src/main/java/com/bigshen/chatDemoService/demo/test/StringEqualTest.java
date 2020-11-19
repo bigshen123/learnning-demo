@@ -1,4 +1,4 @@
-package com.bigshen.chatDemoService.test;
+package com.bigshen.chatDemoService.demo.test;
 
 /**
  * @ClassName StringEqualTest
