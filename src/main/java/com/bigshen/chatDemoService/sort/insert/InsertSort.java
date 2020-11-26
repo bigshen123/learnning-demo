@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * @Description:²åÈëÅÅĞò
+ * @Description:æ’å…¥æ’åº
  * @Author: BIGSHEN
  * @Date: 2019/12/5 19:36
  */
@@ -35,7 +35,7 @@ public class InsertSort {
 
 
     /**
-     ²åÈëÅÅĞò£¬a±íÊ¾Êı×é£¬n±íÊ¾Êı×é´óĞ¡
+     æ’å…¥æ’åºï¼Œaè¡¨ç¤ºæ•°ç»„ï¼Œnè¡¨ç¤ºæ•°ç»„å¤§å°
      */
     public static void insertionSort(Integer[] a, int n) {
         if (n <= 1) return;
@@ -43,30 +43,30 @@ public class InsertSort {
         for (int i = 1; i < n; ++i) {
             int value = a[i];
             int j = i - 1;
-            // ²éÕÒ²åÈëµÄÎ»ÖÃ
+            // æŸ¥æ‰¾æ’å…¥çš„ä½ç½®
             for (; j >= 0; --j) {
                 if (a[j] > value) {
-                    // Êı¾İÒÆ¶¯
+                    // æ•°æ®ç§»åŠ¨
                     a[j+1] = a[j];
                 } else {
                     break;
                 }
             }
-            // ²åÈëÊı¾İ
+            // æ’å…¥æ•°æ®
             a[j+1] = value;
         }
     }
     public static void main(String[] args) {
         Integer[] arr = new Integer[8];
         for (int i = 0; i < 8; i++) {
-            System.out.println("ÇëÊäÈëµÚ" + (i+1) + "¸öÊı");
+            System.out.println("è¯·è¾“å…¥ç¬¬" + (i+1) + "ä¸ªæ•°");
             Scanner scanner=new Scanner(System.in);
             arr[i]= scanner.nextInt();
         }
-        System.out.println("ÅÅĞòÇ°"+ Arrays.toString(arr));
+        System.out.println("æ’åºå‰"+ Arrays.toString(arr));
         //insertSort(arr);
         insertionSort(arr,8);
-        System.out.println("ÅÅĞòºó"+ Arrays.toString(arr));
+        System.out.println("æ’åºå"+ Arrays.toString(arr));
     }
 
 }

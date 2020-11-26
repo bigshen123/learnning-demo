@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ES操作
+ * 原生基于JAVA ES操作
  * @author Admin
  *
  */

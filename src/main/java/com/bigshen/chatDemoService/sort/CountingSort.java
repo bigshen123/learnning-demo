@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @ClassName CountingSort
- * @Description: TODO  ¼ÆÊıÅÅĞò
+ * @Description: TODO  è®¡æ•°æ’åº
  * @Author BYJ
  * @Date 2020/8/30
  * @Version V1.0
@@ -13,44 +13,44 @@ public class CountingSort {
 
 
     /**
-     ¼ÆÊıÅÅĞò£¬aÊÇÊı×é£¬nÊÇÊı×é´óĞ¡¡£¼ÙÉèÊı×éÖĞ´æ´¢µÄ¶¼ÊÇ·Ç¸ºÕûÊı¡£
+     è®¡æ•°æ’åºï¼Œaæ˜¯æ•°ç»„ï¼Œnæ˜¯æ•°ç»„å¤§å°ã€‚å‡è®¾æ•°ç»„ä¸­å­˜å‚¨çš„éƒ½æ˜¯éè´Ÿæ•´æ•°ã€‚
      */
     public static void countingSort(int[] a, int n) {
         if (n <= 1) return;
 
-        // ²éÕÒÊı×éÖĞÊı¾İµÄ·¶Î§
+        // æŸ¥æ‰¾æ•°ç»„ä¸­æ•°æ®çš„èŒƒå›´
         int max = a[0];
         for (int i = 1; i < n; ++i) {
             if (max < a[i]) {
                 max = a[i];
             }
         }
-        // ÉêÇëÒ»¸ö¼ÆÊıÊı×éc£¬ÏÂ±ê´óĞ¡[0,max]
+        // ç”³è¯·ä¸€ä¸ªè®¡æ•°æ•°ç»„cï¼Œä¸‹æ ‡å¤§å°[0,max]
         int[] c = new int[max + 1];
         for (int i = 0; i <= max; ++i) {
             c[i] = 0;
         }
 
-        // ¼ÆËãÃ¿¸öÔªËØµÄ¸öÊı£¬·ÅÈëcÖĞ
+        // è®¡ç®—æ¯ä¸ªå…ƒç´ çš„ä¸ªæ•°ï¼Œæ”¾å…¥cä¸­
         for (int i = 0; i < n; ++i) {
             c[a[i]]++;
         }
 
-        // ÒÀ´ÎÀÛ¼Ó
+        // ä¾æ¬¡ç´¯åŠ 
         for (int i = 1; i <= max; ++i) {
             c[i] = c[i-1] + c[i];
         }
 
-        // ÁÙÊ±Êı×ér£¬´æ´¢ÅÅĞòÖ®ºóµÄ½á¹û
+        // ä¸´æ—¶æ•°ç»„rï¼Œå­˜å‚¨æ’åºä¹‹åçš„ç»“æœ
         int[] r = new int[n];
-        // ¼ÆËãÅÅĞòµÄ¹Ø¼ü²½Öè£¬ÓĞµãÄÑÀí½â
+        // è®¡ç®—æ’åºçš„å…³é”®æ­¥éª¤ï¼Œæœ‰ç‚¹éš¾ç†è§£
         for (int i = n - 1; i >= 0; --i) {
             int index = c[a[i]]-1;
             r[index] = a[i];
             c[a[i]]--;
         }
 
-        // ½«½á¹û¿½±´¸øaÊı×é
+        // å°†ç»“æœæ‹·è´ç»™aæ•°ç»„
         for (int i = 0; i < n; ++i) {
             a[i] = r[i];
         }
@@ -58,8 +58,8 @@ public class CountingSort {
 
     public static void main(String[] args) {
         int score[]={12,89,43,34,56};
-        System.out.println("ÅÅĞòÇ°µÄÊı×é£º"+ Arrays.toString(score));
+        System.out.println("æ’åºå‰çš„æ•°ç»„ï¼š"+ Arrays.toString(score));
         countingSort(score,score.length);
-        System.out.println("ÅÅÁĞºóµÄÊı×é: "+Arrays.toString(score));
+        System.out.println("æ’åˆ—åçš„æ•°ç»„: "+Arrays.toString(score));
     }
 }
