@@ -1,5 +1,6 @@
-package com.bigshen.chatDemoService.utils;
+package com.bigshen.chatDemoService.utils.file;
 
+import com.bigshen.chatDemoService.utils.CmdUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

@@ -1,4 +1,4 @@
-package com.bigshen.chatDemoService.utils;
+package com.bigshen.chatDemoService.utils.json;
 
 /**
  * @ClassName TestFastJson

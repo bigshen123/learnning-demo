@@ -1,4 +1,4 @@
-package com.bigshen.chatDemoService.utils;
+package com.bigshen.chatDemoService.utils.encrypt;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

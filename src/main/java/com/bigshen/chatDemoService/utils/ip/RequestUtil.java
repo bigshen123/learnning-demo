@@ -1,4 +1,4 @@
-package com.bigshen.chatDemoService.utils;
+package com.bigshen.chatDemoService.utils.ip;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;

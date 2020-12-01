@@ -1,5 +1,6 @@
-package com.bigshen.chatDemoService.utils;
+package com.bigshen.chatDemoService.utils.qrcode;
 
+import com.bigshen.chatDemoService.utils.CmdUtil;
 import com.bigshen.chatDemoService.utils.enums.FastdfsUtil;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;

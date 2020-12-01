@@ -3,6 +3,7 @@
  */
 package com.bigshen.chatDemoService.utils;
 
+import com.bigshen.chatDemoService.utils.date.DateUtil01;
 import org.apache.poi.hssf.usermodel.*;
 import org.springframework.util.CollectionUtils;
 
@@ -28,7 +29,7 @@ public class ExportDemo {
 		String sheetName = "聊天内容";
 		// 文件名称
 		String fileName = "TEST" + "_" + sheetName + "_"
-				+ DateUtil.getDateDay() + ".xlsx";
+				+ DateUtil01.getDateDay() + ".xlsx";
 		// 声明一个工作薄
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		// 创建一个sheet

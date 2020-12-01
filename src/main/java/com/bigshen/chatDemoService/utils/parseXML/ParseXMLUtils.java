@@ -1,4 +1,4 @@
-package com.bigshen.chatDemoService.utils;
+package com.bigshen.chatDemoService.utils.parseXML;
 
 
 import com.bigshen.chatDemoService.utils.bo.MetaBO;

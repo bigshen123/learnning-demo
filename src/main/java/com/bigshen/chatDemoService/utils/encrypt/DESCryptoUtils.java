@@ -1,4 +1,4 @@
-package com.bigshen.chatDemoService.utils;
+package com.bigshen.chatDemoService.utils.encrypt;
 import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;

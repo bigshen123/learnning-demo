@@ -1,7 +1,7 @@
 /*
  * @Copyright: 2018-2019 taojiji All rights reserved.
  */
-package com.bigshen.chatDemoService.utils;
+package com.bigshen.chatDemoService.utils.date;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -16,7 +16,7 @@ import java.util.Date;
 /**
  * 时间工具类
  */
-public class DateUtil {
+public class DateUtil01 {
 
 	public static final ThreadLocal<SimpleDateFormat> timeRangeDateFormat = new ThreadLocal<SimpleDateFormat>() {
 		@Override
