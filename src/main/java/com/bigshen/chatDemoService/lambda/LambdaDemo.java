@@ -167,4 +167,27 @@ public class LambdaDemo {
                 .findFirst().orElse(null);
         System.out.println(orderInfo);
     }
+
+    @Test
+    public void peekTest(){
+        List<Persion> lists = new ArrayList<Persion>();
+        lists.add(new Persion(1L, "p1"));
+        lists.add(new Persion(2L, "p2"));
+        lists.add(new Persion(3L, "p3"));
+        lists.add(new Persion(4L, "p4"));
+        System.out.println(lists);
+
+        List<Persion> list2 = lists.stream()
+                .filter(f -> f.getName().startsWith("p"))
+                .peek(t -> System.out.println(t.getName()))
+                .collect(Collectors.toList());
+
+        System.out.println(list2);
+    }
+
+    @Test
+    public void list2Map(){
+
+    }
+
 }

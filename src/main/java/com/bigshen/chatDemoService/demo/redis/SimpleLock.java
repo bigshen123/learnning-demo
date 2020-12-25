@@ -17,13 +17,13 @@ public class SimpleLock {
     Jedis conn=new Jedis("127.0.0.1",6379);
 
     /**
-     * 获取分布式锁
+     * ?????????
      * @return
      */
     private String accquireLock(int timeout){
         String uuid= UUID.randomUUID().toString();
         long end=System.currentTimeMillis();
-        //设置为可重入锁
+        //?????????????
         while (System.currentTimeMillis()>end){
             if (conn.setnx(LOCK_NAME,uuid).intValue()==1){
                 conn.expire(LOCK_NAME,timeout);
@@ -42,7 +42,7 @@ public class SimpleLock {
     }
 
     /**
-     * 释放分布式锁
+     * ????????
      * @param uuid
      * @return
      */
@@ -67,9 +67,9 @@ public class SimpleLock {
         SimpleLock simpleLock=new SimpleLock();
         String uuid = simpleLock.accquireLock(100000);
         if (uuid!=null){
-            System.out.println("获取锁成功");
+            System.out.println("????????");
         }else{
-            System.out.println("获取锁失败......");
+            System.out.println("????????......");
             }
 
     }

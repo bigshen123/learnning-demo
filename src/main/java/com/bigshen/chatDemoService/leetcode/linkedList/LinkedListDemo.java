@@ -21,20 +21,37 @@ package com.bigshen.chatDemoService.leetcode.linkedList;
  **/
 public class LinkedListDemo {
 
+    public static class Node {
+        public char c;
+        public Node next;
+
+        public Node(char c) {
+            this.c = c;
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "c=" + c +
+                    ", next=" + next +
+                    '}';
+        }
+    }
+
     /**
      * 单链表反转
      * @param head
      * @return
      */
-    private static ListNode reverseList(ListNode head) {
+    private static Node reverseList(Node head) {
         //前指针节点
-        ListNode prev = null;
+        Node prev = null;
         //当前指针节点
-        ListNode curr = head;
+        Node curr = head;
         //每次循环，都将当前节点指向它前面的节点，然后当前节点和前节点后移
         while (curr != null) {
             //临时节点，暂存当前节点的下一节点，用于后移
-            ListNode nextTemp = curr.next;
+            Node nextTemp = curr.next;
             //将当前节点指向它前面的节点
             curr.next = prev;
             //前指针后移
@@ -245,10 +262,12 @@ public class LinkedListDemo {
         char[] input2=new char[]{'c','d'};
         Node node1 = buildNode(input1);
         Node node2 = buildNode(input2);
+        Node node = reverseList(node1);
+        System.out.println(node);
         //ListNode listNode1 = reverseList(listNode);
         //System.out.println(listNode1);
-        Node merge = merge(node1, node2);
-        System.out.println(merge);
+        //Node merge = merge(node1, node2);
+        //System.out.println(merge);
         //reverseList()
     }
 }

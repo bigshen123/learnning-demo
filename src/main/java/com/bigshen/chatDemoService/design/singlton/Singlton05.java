@@ -10,7 +10,10 @@ package com.bigshen.chatDemoService.design.singlton;
  */
 public class Singlton05 {
 
-    private static Singlton05 singlton05;
+    /**
+     这里的 volatile 关键字主要是为了防止指令重排
+     */
+    private static volatile Singlton05 singlton05;
 
     private Singlton05(){
         System.out.println("私有Singlton05构造参数初始化");
