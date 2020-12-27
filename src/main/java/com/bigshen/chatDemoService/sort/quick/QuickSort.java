@@ -48,12 +48,14 @@ public class QuickSort {
         int pivot = (int) (start + Math.random() * (end - start + 1));
         int smallIndex = start - 1;
         swap(array, pivot, end);
-        for (int i = start; i <= end; i++)
+        for (int i = start; i <= end; i++) {
             if (array[i] <= array[end]) {
                 smallIndex++;
-                if (i > smallIndex)
+                if (i > smallIndex) {
                     swap(array, i, smallIndex);
+                }
             }
+        }
         return smallIndex;
     }
 
