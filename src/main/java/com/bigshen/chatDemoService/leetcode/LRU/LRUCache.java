@@ -27,7 +27,7 @@ public class LRUCache {
         this.cap=capacity;
     }
     public int get(int key){
-        if (map.keySet().contains(key)){
+        if (map.containsKey(key)){
             int value = map.get(key);
             map.remove(key);
             //保证在末尾
@@ -37,7 +37,7 @@ public class LRUCache {
         return -1;
     }
     public void put(int key,int value){
-        if (map.keySet().contains(key)){
+        if (map.containsKey(key)){
             map.remove(key);
         }else if (map.size()==cap){
             Iterator<Map.Entry<Integer, Integer>> iterator = map.entrySet().iterator();
@@ -45,6 +45,20 @@ public class LRUCache {
             iterator.remove();
         }
         map.put(key,value);
+    }
+
+    public static void main(String[] args) {
+        LRUCache lruCache=new LRUCache(10);
+        lruCache.put(1,1);
+        lruCache.put(2,2);
+        lruCache.put(3,3);
+        lruCache.put(4,4);
+
+        lruCache.get(2);
+        lruCache.get(3);
+        lruCache.put(5,5);
+        lruCache.map.entrySet().forEach(System.out::println);
+
     }
 
 }

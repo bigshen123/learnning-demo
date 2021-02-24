@@ -186,7 +186,10 @@ public class LambdaDemo {
     }
 
     @Test
-    public void list2Map(){
+    public void demo(){
+        String[] test={"tom","jerry","lily","lucy","apple","atom","toms","tommy"};
+        List<String> list = Arrays.asList(test);
+        list.stream().filter(s->s.length()>=4).filter(s->s.contains("tom")).map(s->s+s.length()).forEach(System.out::println);
 
     }
 
